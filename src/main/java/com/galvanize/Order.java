@@ -6,10 +6,11 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Order {
-
+    // encapsulation: the fields below should not be public
     public ArrayList<Object> items = new ArrayList<>();
     public BigDecimal total = new BigDecimal("0.00");
 
+    // the method below is a good candidate for subtype polymorphism - avoid the if >> create type Order
     void addItem(Object item) {
         items.add(item);
         if (item instanceof Lease) {
