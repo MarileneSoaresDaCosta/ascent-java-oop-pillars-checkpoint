@@ -4,14 +4,15 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-
+// this class should be abstract. Only usages on test to check number of items
 public class Order {
     // encapsulation: the fields below should not be public
     public ArrayList<Object> items = new ArrayList<>();
     public BigDecimal total = new BigDecimal("0.00");
 
     // the method below is a good candidate for subtype polymorphism - avoid the if >> create type Order
-    // alternatively, the method could be defined in the future subclasses, and Order could be made abstract
+    // alternatively, the method to calculate total could be defined
+    // in the subclasses, and Order could be made abstract
     void addItem(Object item) {
         items.add(item);
         if (item instanceof Lease) {
@@ -28,6 +29,7 @@ public class Order {
         }
     }
 
+    // we'll need a getter for items and one for total
     public BigDecimal getTotal() {
         return total;
     }

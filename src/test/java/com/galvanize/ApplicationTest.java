@@ -21,7 +21,9 @@ public class ApplicationTest {
         Rental rental = new Rental(new BigDecimal("12.44"), LocalDateTime.now().plus(Duration.ofDays(5)));
         assertEquals(true, rental.toString().contains("rentalPricePerDay=12.44"));
 
+        // once Order is abstract, we won't need the line below
         Order order = new Order();
+
         assertEquals(0, order.items.size());
         assertEquals(new BigDecimal("0.00"), order.getTotal());
 
