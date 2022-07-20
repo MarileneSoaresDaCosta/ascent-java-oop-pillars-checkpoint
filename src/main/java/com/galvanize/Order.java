@@ -11,6 +11,7 @@ public class Order {
     public BigDecimal total = new BigDecimal("0.00");
 
     // the method below is a good candidate for subtype polymorphism - avoid the if >> create type Order
+    // alternatively, the method could be defined in the future subclasses, and Order could be made abstract
     void addItem(Object item) {
         items.add(item);
         if (item instanceof Lease) {
