@@ -21,21 +21,23 @@ public class ApplicationTest {
         Rental rental = new Rental(new BigDecimal("12.44"), LocalDateTime.now().plus(Duration.ofDays(5)));
         assertEquals(true, rental.toString().contains("rentalPricePerDay=12.44"));
 
-        Order order = new Order();
-        assertEquals(0, order.items.size());
-        assertEquals(new BigDecimal("0.00"), order.getTotal());
+        // once Order is abstract, we won't need the line below
+//        Order order = new Order();
 
-        order.addItem(lease);
-        assertEquals(1, order.items.size());
-        assertEquals(new BigDecimal("18.30"), order.getTotal());
+        assertEquals(0, Order.getItems().size());
+        assertEquals(new BigDecimal("0.00"), Order.getTotal());
 
-        order.addItem(purchase);
-        assertEquals(2, order.items.size());
-        assertEquals(new BigDecimal("26.18"), order.getTotal());
+        Order.addItem(lease);
+        assertEquals(1,Order.getItems().size());
+        assertEquals(new BigDecimal("18.30"), Order.getTotal());
 
-        order.addItem(rental);
-        assertEquals(3, order.items.size());
-        assertEquals(new BigDecimal("88.38"), order.getTotal());
+        Order.addItem(purchase);
+        assertEquals(2, Order.getItems().size());
+        assertEquals(new BigDecimal("26.18"), Order.getTotal());
+
+        Order.addItem(rental);
+        assertEquals(3, Order.getItems().size());
+        assertEquals(new BigDecimal("88.38"), Order.getTotal());
     }
 
 }
