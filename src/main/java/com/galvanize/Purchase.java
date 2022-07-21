@@ -2,10 +2,10 @@ package com.galvanize;
 
 import java.math.BigDecimal;
 // inheritance & poly: Purchase should extend order
-public class Purchase {
+public class Purchase extends Order {
     // encapsulation: restrict visibility of fields
-    public BigDecimal price;
-    public String productName;
+    private BigDecimal price;
+    private String productName;
 
     // constructor
     public Purchase(String productName, BigDecimal price) {
@@ -14,6 +14,11 @@ public class Purchase {
     }
 
     // add method to calculate total
+    @Override
+    public BigDecimal calculateOrderTotal(){
+        return this.price;
+    }
+
 
     @Override
     public String toString() {

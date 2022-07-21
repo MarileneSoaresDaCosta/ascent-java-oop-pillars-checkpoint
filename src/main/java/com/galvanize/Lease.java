@@ -3,11 +3,11 @@ package com.galvanize;
 import java.math.BigDecimal;
 
 // inheritance & poly: Lease should extend order
-public class Lease {
+public class Lease extends Order {
     // encapsulation: restrict visibility of fields
-    public BigDecimal pricePerMonth;
-    public int numberOfMonths;
-    public String licensePlate;
+    private BigDecimal pricePerMonth;
+    private int numberOfMonths;
+    private String licensePlate;
 
     // constructor
     public Lease(String licensePlate, BigDecimal pricePerMonth, int numberOfMonths) {
@@ -15,8 +15,12 @@ public class Lease {
         this.pricePerMonth = pricePerMonth;
         this.numberOfMonths = numberOfMonths;
     }
-
     // add method to calculate total
+    @Override
+    public BigDecimal calculateOrderTotal(){
+        return this.pricePerMonth.multiply(BigDecimal.valueOf(this.numberOfMonths));
+    }
+
     @Override
     public String toString() {
         return "Lease{" +
