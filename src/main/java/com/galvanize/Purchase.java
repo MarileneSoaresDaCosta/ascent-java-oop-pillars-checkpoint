@@ -15,7 +15,7 @@ public class Purchase extends Order {
 
     // add method to calculate total
     @Override
-    public BigDecimal calculateOrderTotal(){
+    public BigDecimal totalPrice(){
         return this.price;
     }
 

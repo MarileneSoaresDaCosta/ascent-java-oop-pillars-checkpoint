@@ -17,7 +17,7 @@ public class Lease extends Order {
     }
     // add method to calculate total
     @Override
-    public BigDecimal calculateOrderTotal(){
+    public BigDecimal totalPrice(){
         return this.pricePerMonth.multiply(BigDecimal.valueOf(this.numberOfMonths));
     }
 

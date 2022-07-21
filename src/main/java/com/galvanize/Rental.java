@@ -17,7 +17,7 @@ public class Rental extends Order {
         this.endDate = endDate;
     }
     // add method for calculation of total
-    public BigDecimal calculateOrderTotal(){
+    public BigDecimal totalPrice(){
         long days = LocalDateTime.now().until(this.endDate, ChronoUnit.DAYS) + 1;
         return this.rentalPricePerDay.multiply(BigDecimal.valueOf(days));
     }
