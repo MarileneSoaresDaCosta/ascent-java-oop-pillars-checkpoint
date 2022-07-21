@@ -29,7 +29,7 @@ public abstract class Order {
 //        }
     }
 
-    // calculate ordertotal >>  abstract method >> changed according to context
+    // calculate order total >>  abstract method >> changed according to context - tests require name "totalPrice"
     public abstract BigDecimal totalPrice();
 
     // we'll need a getter for items and one for total
