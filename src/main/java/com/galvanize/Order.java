@@ -38,7 +38,6 @@ public abstract class Order {
     }
 
     public static ArrayList<Object> getItems(){
-        ArrayList<Object> copyOfItems = new ArrayList<>(items);
-        return copyOfItems;
+        return new ArrayList<>(items);
     }
 }
